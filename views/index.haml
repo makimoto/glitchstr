@@ -1,0 +1,37 @@
+!!!
+%html
+  %head
+    %title Glitched String API
+  %script{:src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js', :type => 'text/javascript'}
+  %body
+    %h1#app-title Glitched String API
+  %body
+    %h2 What's this?
+    %p This is yet another API for converting string to glitched one.
+    %h2 Usage
+    %ul
+      %li
+        %a{:href => '/LIKE THIS.'} LIKE THIS.
+      %li
+        %a{:href => '/?str=or, LIKE THIS.&u=40&m=2&l=40'} or, LIKE THIS.
+      (Both POST and GET methods are available.)
+    %h2 Author
+    %p makimoto <$ANY_STRING __AT__ makimoto.org>
+    :javascript
+      (function(){
+          var $h1 = jQuery('h1#app-title');
+          var $title = jQuery('title');
+          var glitch_title = function(str){
+            $h1.text(str);
+            $title.text(str);
+          }
+          $h1.mouseover(function(){
+            jQuery.post('/',
+              {str : $h1.text(), u : 1, m : 1, l : 1},
+              function(r){
+                glitch_title(r);
+              }
+            );
+          });
+        }
+      )();
