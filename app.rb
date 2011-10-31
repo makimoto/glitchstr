@@ -1,8 +1,7 @@
 # vim:encoding=utf-8
 require 'rubygems'
-require 'sinatra'
-require 'haml'
-require './lib/glitched_string'
+require 'bundler'
+Bundler.require
 
 def glitch
   content_type :text
