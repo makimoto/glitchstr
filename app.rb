@@ -9,7 +9,7 @@ def glitch
   options[:upper]  = params[:u]
   options[:middle] = params[:m]
   options[:lower]  = params[:l]
-  params[:str].to_glitch options
+  params[:str].glitch options
 end
 
 def both(p, o = {}, &b)
